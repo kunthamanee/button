@@ -72,7 +72,7 @@
     statusEl.style.color = 'blue';
 
     // ขอสถานะทันที
-    client.publish(TOPIC_CMD, 'status');
+    client.publish(TOPIC_MSG, 'status');
   });
 
   client.on('message', (topic, message) => {
@@ -102,7 +102,7 @@
 
   function send(cmd) {
     if (client.connected) {
-      client.publish(TOPIC_CMD, cmd);
+      client.publish(TOPIC_MSG, msg);
       statusEl.textContent = 'Sending...';
     } else {
       statusEl.textContent = 'Not Connected!';
@@ -127,5 +127,6 @@
 </body>
 
 </html>
+
 
 
